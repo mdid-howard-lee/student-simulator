@@ -933,6 +933,222 @@ section {
   display: inline-block;
 }
 
+/* ============= CTA SECTION ============= */
+.cta-section {
+  padding: clamp(100px, 16vh, 160px) 0 60px;
+  position: relative;
+}
+
+.cta-card {
+  background:
+    repeating-linear-gradient(180deg, transparent 0 31px, var(--rule-soft) 31px 32px),
+    var(--paper);
+  border: 1.5px solid var(--ink);
+  padding: clamp(40px, 6vw, 80px) clamp(28px, 5vw, 64px);
+  box-shadow:
+    14px 14px 0 -2px var(--ink-red),
+    14px 14px 0 -1px var(--ink);
+  position: relative;
+  text-align: center;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.cta-mark {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--ink-red);
+  margin-bottom: 24px;
+}
+
+.cta-h {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(56px, 9vw, 124px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-bottom: 28px;
+}
+.cta-h .h-mark {
+  background: linear-gradient(180deg, transparent 60%, var(--highlight) 60%);
+  padding: 0 8px;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.cta-sub {
+  font-family: 'Fraunces', serif;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 540px;
+  margin: 0 auto 44px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+}
+.press-start.big {
+  font-size: 14px;
+  padding: 28px 38px 22px;
+  text-align: left;
+  line-height: 1;
+}
+.press-start.big small {
+  display: block;
+  margin-top: 12px;
+  font-size: 8px;
+  color: rgba(240, 230, 207, 0.6);
+  letter-spacing: 0.04em;
+}
+.wishlist {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 22px 32px;
+  border: 2px solid var(--ink);
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 1.4;
+  text-align: left;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+  box-shadow: 6px 6px 0 var(--ink);
+}
+.wishlist small {
+  font-size: 8px;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+  font-weight: 400;
+}
+.wishlist:hover {
+  background: var(--highlight);
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+.wishlist:active {
+  transform: translate(4px, 4px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.cta-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px 32px;
+  padding-top: 36px;
+  border-top: 1px dashed rgba(0,0,0,0.3);
+  text-align: left;
+}
+.cta-meta div {
+  display: flex; flex-direction: column;
+}
+.cta-meta b {
+  font-family: 'Fraunces', serif;
+  font-weight: 800;
+  font-size: 22px;
+  font-style: italic;
+  letter-spacing: -0.01em;
+}
+.cta-meta span {
+  font-family: 'Special Elite', monospace;
+  font-size: 11px;
+  color: var(--ink-soft);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* FAQ */
+.faq {
+  margin-top: 100px;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.faq-title {
+  font-family: 'Caveat', cursive;
+  font-size: 42px;
+  color: var(--ink-red);
+  transform: rotate(-1.5deg);
+  display: inline-block;
+  margin-bottom: 32px;
+}
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+.faq-q {
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  padding: 26px 28px;
+  box-shadow: 6px 8px 0 var(--ink);
+  position: relative;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.faq-q:nth-child(odd) { transform: rotate(-0.4deg); }
+.faq-q:nth-child(even) { transform: rotate(0.5deg); }
+.faq-q:hover {
+  transform: rotate(0deg) translate(-2px, -2px);
+  box-shadow: 8px 10px 0 var(--ink);
+}
+.faq-q > span {
+  position: absolute;
+  top: -14px; left: 18px;
+  background: var(--ink-red);
+  color: var(--paper);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  padding: 6px 10px;
+  letter-spacing: 0.1em;
+}
+.faq-q h5 {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 22px;
+  margin: 6px 0 10px;
+}
+.faq-q p {
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.signoff-block {
+  text-align: center;
+  margin-top: 100px;
+}
+.signoff {
+  font-family: 'Caveat', cursive;
+  font-size: 36px;
+  color: var(--ink-red);
+  transform: rotate(-2deg);
+  display: inline-block;
+}
+.signoff-sub {
+  font-family: 'Special Elite', monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-top: 14px;
+}
+
+@media (max-width: 760px) {
+  .cta-meta { grid-template-columns: 1fr 1fr; }
+  .faq-grid { grid-template-columns: 1fr; }
+  .cta-buttons { flex-direction: column; align-items: stretch; }
+  .press-start.big, .wishlist { text-align: center; }
+}
+
 /* ============= FOOTER ============= */
 footer {
   border-top: 2px solid var(--ink);
@@ -1369,21 +1585,67 @@ footer {
     </div>
   </section>
 
-  <!-- ============= EXPERIENCE / OUTRO ============= -->
-  <section class="experience">
-    <div class="reveal">
-      <div class="chapter-num" style="margin-bottom: 22px;">▶ 06 — INTENDED IMPACT</div>
-      <h2>
-        Being a student requires <b>decision-making</b>,
-        <span class="h-mark">time management</span>, and the
-        <em>willpower</em> to keep choosing yourself — long after the bell.
+  <!-- ============= PLAY / CTA ============= -->
+  <section id="play" class="cta-section">
+    <div class="reveal cta-card">
+      <div class="cta-mark">▶ NOW THEN —</div>
+      <h2 class="cta-h">
+        How <span class="h-mark">are</span> you,<br/>
+        <em>really?</em>
       </h2>
-      <p style="font-family: 'Fraunces', serif; font-size: 19px; max-width: 680px; margin: 0 auto 36px; color: var(--ink-soft); line-height: 1.6;">
-        The game is the argument. The argument is that student life is more
-        complicated than anyone outside of it perceives — and that complexity
-        is worth playing with.
+      <p class="cta-sub">
+        The demo is one in-game week. About 25 minutes. No tutorial.
+        No sign-up. You'll know if it's for you by Wednesday.
       </p>
+
+      <div class="cta-buttons">
+        <a class="press-start big" href="#">
+          PLAY <span class="blink">▌</span> DEMO
+          <small>↳ free · browser · 25 min</small>
+        </a>
+        <a class="wishlist" href="#">
+          ♥ WISHLIST<br/><small>get a save file when it ships</small>
+        </a>
+      </div>
+
+      <div class="cta-meta">
+        <div><b>solo dev</b><span>one designer, one notebook</span></div>
+        <div><b>~25 min</b><span>full demo runtime</span></div>
+        <div><b>plays in browser</b><span>no install, no account</span></div>
+        <div><b>controller + keyboard</b><span>both supported on day one</span></div>
+      </div>
+    </div>
+
+    <!-- last little marketing detail -->
+    <div class="reveal faq">
+      <div class="faq-title">A few honest answers.</div>
+      <div class="faq-grid">
+        <div class="faq-q">
+          <span>Q.</span>
+          <h5>Is it sad?</h5>
+          <p>Sometimes. But it's also the kind of game where a small win at lunch feels like beating a boss. So.</p>
+        </div>
+        <div class="faq-q">
+          <span>Q.</span>
+          <h5>Do I have to be in school?</h5>
+          <p>No. If you've ever been — or ever loved someone who is — you already speak the language.</p>
+        </div>
+        <div class="faq-q">
+          <span>Q.</span>
+          <h5>Is there a "win"?</h5>
+          <p>There are seventeen endings. None of them are perfect. We think that's the most honest thing about it.</p>
+        </div>
+        <div class="faq-q">
+          <span>Q.</span>
+          <h5>Why are you making this?</h5>
+          <p>Because nobody made it for me when I needed it. So I'm making it for whoever needs it next.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal signoff-block">
       <div class="signoff">— Ryan Yang, designer</div>
+      <div class="signoff-sub">an honest sim, made loud · 2026</div>
     </div>
   </section>
 

@@ -1626,9 +1626,31 @@ footer {
           DEMO <span class="blink">▌</span> SOON
           <small>↳ still cooking · check back later</small>
         </span>
-        <a class="wishlist" href="mailto:94i88mama@gmail.com?subject=Notify%20me%20when%20Student%20Simulator%20demo%20is%20ready">
-          ✉ NOTIFY ME<br/><small>one email, the day the demo drops</small>
-        </a>
+        <form class="notify-form" id="notify-form" novalidate>
+          <label class="notify-label" for="notify-email">✉ NOTIFY ME</label>
+          <div class="notify-row">
+            <input
+              type="email"
+              id="notify-email"
+              name="email"
+              required
+              placeholder="your@email.com"
+              autocomplete="email"
+              aria-label="Your email address"
+            />
+            <button type="submit" class="notify-btn" aria-label="Submit">
+              ▶
+            </button>
+          </div>
+          <small class="notify-hint">one email, the day the demo drops.</small>
+        </form>
+        <div class="notify-success" id="notify-success" hidden role="status" aria-live="polite">
+          <div class="notify-success-mark">♥</div>
+          <div>
+            <b>you're on the list.</b>
+            <small>i'll email you the second it ships. promise.</small>
+          </div>
+        </div>
       </div>
 
       <div class="cta-meta">

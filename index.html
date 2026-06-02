@@ -1007,6 +1007,29 @@ section {
   color: rgba(240, 230, 207, 0.6);
   letter-spacing: 0.04em;
 }
+.press-start.coming-soon {
+  background: #3a3a45;
+  color: rgba(240, 230, 207, 0.7);
+  cursor: not-allowed;
+  box-shadow: 6px 6px 0 #2a2a35;
+  position: relative;
+}
+.press-start.coming-soon::before {
+  content: 'WIP';
+  position: absolute;
+  top: -10px; right: -10px;
+  background: var(--ink-red);
+  color: var(--paper);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  padding: 5px 8px;
+  letter-spacing: 0.08em;
+  transform: rotate(6deg);
+}
+.press-start.coming-soon:hover {
+  transform: none;
+  box-shadow: 6px 6px 0 #2a2a35;
+}
 .wishlist {
   font-family: 'Press Start 2P', monospace;
   font-size: 12px;
@@ -1599,10 +1622,10 @@ footer {
       </p>
 
       <div class="cta-buttons">
-        <a class="press-start big" href="#">
-          PLAY <span class="blink">▌</span> DEMO
-          <small>↳ free · browser · 25 min</small>
-        </a>
+        <span class="press-start big coming-soon" aria-disabled="true">
+          DEMO <span class="blink">▌</span> SOON
+          <small>↳ still cooking · check back later</small>
+        </span>
         <a class="wishlist" href="#">
           ♥ WISHLIST<br/><small>get a save file when it ships</small>
         </a>

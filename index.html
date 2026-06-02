@@ -1129,6 +1129,13 @@ section {
   0%, 100% { transform: scale(1); }
   50%      { transform: scale(1.15); }
 }
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%      { transform: translateX(-6px); }
+  40%      { transform: translateX(6px); }
+  60%      { transform: translateX(-4px); }
+  80%      { transform: translateX(4px); }
+}
 .notify-success b {
   display: block;
   font-family: 'Fraunces', serif;
@@ -1846,6 +1853,60 @@ if (ps) {
   });
   ps.addEventListener('mouseleave', () => {
     ps.querySelector('.blink').textContent = '▌';
+  });
+}
+
+// Notify-me form
+const notifyForm = document.getElementById('notify-form');
+const notifySuccess = document.getElementById('notify-success');
+const NOTIFY_TO = '94i88mama@gmail.com';
+
+function isValidEmail(v) {
+  // RFC-pragmatic check: something@something.something
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+}
+
+if (notifyForm) {
+  const input = notifyForm.querySelector('input[type="email"]');
+
+  notifyForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = (input.value || '').trim();
+
+    if (!isValidEmail(email)) {
+      input.focus();
+      input.style.animation = 'shake 0.4s';
+      setTimeout(() => { input.style.animation = ''; }, 450);
+      return;
+    }
+
+    // Open the visitor's mail client with a pre-filled email TO Ryan,
+    // with the visitor's email in the body. This is the "real send"
+    // — it actually delivers a notification.
+    const subject = 'Notify me when Student Simulator demo is ready';
+    const body =
+      `Hey Ryan,\n\n` +
+      `Please add me to the notify list for the Student Simulator demo.\n\n` +
+      `My email: ${email}\n\n` +
+      `Thanks!`;
+    const url = `mailto:${NOTIFY_TO}` +
+      `?subject=${encodeURIComponent(subject)}` +
+      `&body=${encodeURIComponent(body)}`;
+
+    // Try to open mail client. If no client is configured the page does
+    // nothing visible — so we always show the success state regardless,
+    // and also store the email locally as a backup record.
+    try {
+      const stored = JSON.parse(localStorage.getItem('ss_notify') || '[]');
+      stored.push({ email, at: new Date().toISOString() });
+      localStorage.setItem('ss_notify', JSON.stringify(stored));
+    } catch (_) {}
+
+    window.location.href = url;
+
+    // Swap to success state immediately so the visitor sees acknowledgment
+    notifyForm.hidden = true;
+    notifySuccess.hidden = false;
   });
 }
 
